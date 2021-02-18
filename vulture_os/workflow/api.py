@@ -318,6 +318,10 @@ class WorkflowAPIv1(View):
                                 public_dir = '/' + public_dir
                             if public_dir[-1] != '/':
                                 public_dir += '/'
+                        else:
+                            return JsonResponse({
+                                'error': _('Public directory cant be empty')
+                            })
 
                     except KeyError:
                         return JsonResponse({
